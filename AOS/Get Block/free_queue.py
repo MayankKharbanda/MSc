@@ -56,6 +56,14 @@ class Free_Queue():
             current_node.prev_flist.next_flist = current_node.next_flist
         if current_node.next_flist:
             current_node.next_flist.prev_flist = current_node.prev_flist
+            
+    
+    
+    def remove_from_head(self):
+        
+        node = self.head
+        self.head = self.head.next_flist
+        return node
         
      
     
@@ -68,5 +76,5 @@ class Free_Queue():
         current_node = self.head
         
         while current_node is not None:
-            print(current_node.block_num)
+            print(current_node.get_block_num())
             current_node = current_node.next_flist

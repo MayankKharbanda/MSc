@@ -13,8 +13,19 @@ class Buffer_Header:
         
     
     
+    def get_block_num(self):
+        return self.block_num
+    
+    
+    
+    def set_block_num(self, block_num):
+        self.block_num = block_num
+    
+    
+    
     def get_status(self):
         return self.status
+    
     
     
     def set_status(self, status):

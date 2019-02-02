@@ -47,5 +47,5 @@ class Hash_Queue():
         current_node = self.head
         
         while current_node is not None:
-            print(current_node.block_num)
+            print(current_node.get_block_num())
             current_node = current_node.next_hqueue
