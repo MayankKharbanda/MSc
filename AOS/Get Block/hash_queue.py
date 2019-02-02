@@ -29,6 +29,19 @@ class Hash_Queue():
         if self.tail == current_node:
             self.tail = current_node.prev_hqueue
 
+        if current_node.prev_hqueue:
+            current_node.prev_hqueue.next_hqueue = current_node.next_hqueue
+        if current_node.next_hqueue:
+            current_node.next_hqueue.prev_hqueue = current_node.prev_hqueue
+            
+
         
-        current_node.prev_hqueue.next_hqueue = current_node.next_hqueue
-        current_node.next_hqueue.prev_hqueue = current_node.prev_hqueue
+    def show(self):
+        
+        print("Show list data:")
+        
+        current_node = self.head
+        
+        while current_node is not None:
+            print(current_node.block_num)
+            current_node = current_node.next_hqueue

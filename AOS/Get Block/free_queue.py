@@ -36,10 +36,22 @@ class Free_Queue():
     def remove(self, current_node):
         
         if self.head == current_node:
-            self.head = current_node.next_hqueue
+            self.head = current_node.next_flist
         if self.tail == current_node:
-            self.tail = current_node.prev_hqueue
+            self.tail = current_node.prev_flist
 
+        if current_node.prev_flist:
+            current_node.prev_flist.next_flist = current_node.next_flist
+        if current_node.next_flist:
+            current_node.next_flist.prev_flist = current_node.prev_flist
         
-        current_node.prev_hqueue.next_hqueue = current_node.next_hqueue
-        current_node.next_hqueue.prev_hqueue = current_node.prev_hqueue
+     
+    def show(self):
+        
+        print("Show list data:")
+        
+        current_node = self.head
+        
+        while current_node is not None:
+            print(current_node.block_num)
+            current_node = current_node.next_flist
