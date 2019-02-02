@@ -1,7 +1,9 @@
-import buffer_header
+#import buffer_header
 
 class Hash_Queue():
  
+    
+    
     def __init__(self, head=None, tail=None):
         
         self.head = head
@@ -36,6 +38,8 @@ class Hash_Queue():
             
 
         
+    
+    
     def show(self):
         
         print("Show list data:")
