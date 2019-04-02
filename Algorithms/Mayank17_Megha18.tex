@@ -1,0 +1,100 @@
+\documentclass[a4paper, 12pt]{article}
+\begin{document}
+	\title{Asymptotic Notations}
+	\author{Mayank Kharbanda(17), Megha Sundriyal(18)}
+	\date{August 17, 2018}
+
+	\maketitle
+\paragraph{}
+	\textbf{1 Small-O(o)}
+\paragraph{}
+	$f(n) = o(g(n))$ means for all $c > 0$ there exists some $n_{0} > 0$ such that $0\leq f(n)<cg(n)$ for all $n \geq n_{0}$.
+\paragraph{}
+	\textbf{Example 1.1} $f(n) = n^{2}$ is $O(n^{2})$ and $\theta(n^{2})$. Is $f(n) =  o(n^{2})$ ?
+\paragraph{}
+    \textbf{Sol:} No, $f(n)$ is not $o(n^{2})$.
+	\\ \\ \centerline{Proving by contradiction method.}
+	\\ \\Claim: Suppose if possible, $f(n) = o(n^{2})$ for all, $c > 0 $ there exists some $n_{0} > 0$ such that $0\leq f(n) < cn^{2}$ $\forall$ $n \geq n_{0}$.
+	\\ \\Proof:
+    	$f(n) <cn^{2}$ which implies $n^{2} < cn^{2}$whenever $c > 1$.
+	\\But we said that this should be true $\forall$ $c > 0$. So, let us check for some $0 < c < 1$. 
+	\\ \\ \centerline{Let $c = \frac{1}{2}$} 
+	\\We get,
+	\\ \\ $=>$ \centerline{$n^{2} < \frac{1}{2} n^{2}$}
+	\\ \\but this is not true for any $n$. Thus, we can say that $f(n) \neq o(n^{2})$.
+\paragraph{}
+	\textbf{Example 1.2} $f(n) = n$. $f(n) = O(n^{2})$ and $f(n) \neq \theta(n^{2})$. Is $f(n) = o(n^{2})$ ?
+\paragraph{}
+	\textbf{Sol:} By definition, we know that
+	\\ \\ \centerline{$f(n) = o(n^{2})$,} 
+	\\ \hspace*{\fill}if $\exists$ some $n_0 > 0$, $\forall$ $c > 0$ 
+	\\such that, 
+	\\ \centerline{$0 \leq f(n) < cn^{2}$, $\forall$ $n \geq n_{0}$.} 
+	\\ \\Let $c > 0$, be any arbitrary constant. Then, for $f(n) = o(n^{2})$ we must have
+	\\ \\$=>$ \centerline{  $f(n) < cn^{2}$ }                       
+	\\ \\ $=>$ \centerline{$n < cn^{2}$}
+	\\ \\ $=>$ \centerline{$1 < cn$}
+	\\ \\ $=>$ \centerline{$\frac{1}{c} <n$}
+	\\For every $c$, 
+	\\ $=>$ \centerline{$nc = \frac{1}{c}$}
+	\\ \\Thus we can say,
+	\\ $=>$ \centerline{ $n < cn^{2}$ $\forall$ $n > \frac{1}{c}$}
+	\\ Hence,
+	\\ \centerline{$f(n) = o(n^{2})$.}
+\paragraph{}
+	\textbf{Remark:} If a function $f(n)$ is $O(g(n))$ but not $\theta(g(n))$, then $f(n)$ is $o(g(n))$. 
+\paragraph{}
+\begin{table}[h!]
+	\begin{center}
+		\label{tab:table1}
+		\begin{tabular}{c|c|c|c|c}
+			\textbf{Function 1} & \textbf{Function 2} & \textbf{Big O} & \textbf{Big theta} & \textbf{Small O}\\
+			$f(n)$ & $g(n)$ & $O$ & $\theta$ & $o$ \\
+			\hline
+			$n$ & $n+100$ & T & T &	F\\
+			$2^{n}$ & $3^{n}$ & T & F & T\\
+			$n\log n^{2}$ & $n\log n^{4}$ & T & T & F\\
+			$2^{\log n}$ & $n$ & T & T & F\\
+			$2^{\log \sqrt{n}}$ & $2^{\log n}$ & T & F & T\\
+		\end{tabular}
+	\end{center}
+	\end{table}
+\paragraph{}
+	\textbf{Theorem 2.1:} If $\lim_{x\to\infty}\frac{f(x)}{g(x)} = 0,$ then $f(x)=O(g(x))$ and also $f(x)=o(g(x))$.
+	\\ \\ \textbf{Theorem 2.2:} If $\lim_{x\to\infty}\frac{f(x)}{g(x)} = c,$ for some constant $c$, then $f(x)=O(g(x))$ and also $f(x)= \theta(g(x))$.
+\paragraph{}
+	\textbf{Example 2.1:} $f(n) = \log n$, $g(n)=n$. Is $f(n) = O(g(n))$ and $f(n) = o(g(n))$?
+\paragraph{}
+	\textbf{Sol:} By using limits, finding 
+	\\ \\ \centerline{$\lim_{n\to\infty}\frac{f(n)}{g(n)}$,}  \\ i.e.
+	\\ \\ $=>$ \centerline{$\lim_{n\to\infty}\frac{\log n}{n}$}
+	\\ \\ $=>$ \centerline{$\lim_{n\to\infty}\frac{\frac{1}{n}}{1}=0$}
+	\hspace*{\fill}	(using L’Hôpital’s rule)
+	\\ \\ So, $\lim_{n\to\infty}\frac{f(n)}{g(n)} = 0,$ Hence f(n)=O(g(n)) and also f(n)=o(g(n)).}
+\paragraph{}
+	\textbf{Example 2.2:} $f(n) = \log^{5} n$, $g(n)=\sqrt{n}$. Is $f(n) = o(g(n))$ ?
+\paragraph{}
+ 	\textbf{Sol:} By using limits, finding 
+ 	\\ \\ \centerline{$\lim_{n\to\infty}\frac{f(n)}{g(n)}$,}  
+ 	\\ i.e.
+	\\ \\ $=>$ \centerline{$\lim_{n\to\infty}\frac{\log^{5} n}{\sqrt{n}}$}
+	\\ \\ $=>$\centerline{$\lim_{n\to\infty}\frac{5.\log^{4} n.\frac{1}{n}}{\frac{1}{2\sqrt{n}}}$}
+	\hspace*{\fill}(using L’Hôpital’s rule)
+	\\ \\ $=>$ \centerline{$\lim_{n\to\infty}\frac{5.\log^{4} n}{\frac{1}{2}.\sqrt{n}}$}				
+	\\ \\ $=>$ \centerline{$\lim_{n\to\infty}\frac{5.4.\log^{3} n.\frac{1}{n}}{\frac{1}{2}.\frac{1}{2\sqrt{n}}}$}
+ 	\hspace*{\fill} (using L’Hôpital’s rule)
+	\\ \\ $=>$\centerline{$\lim_{n\to\infty}\frac{5.4.\log^{3} n}{(\frac{1}{2})^{2}.\sqrt{n}}$}
+	\\ \\ \centerline{$...$}
+	\\ \\ \centerline{$...$}
+	\\ \\ $=>$  \centerline{$\lim_{n\to\infty}\frac{5!}{(\frac{1}{2})^{5}.\frac{1}{\sqrt{n}}}$}
+	\\ \\ So, $\lim_{n\to\infty}\frac{f(n)}{g(n)} = 0,$
+	Hence, $f(n)=o(g(n)).$
+\paragraph{}
+	\textbf{Home Work}
+\paragraph{}
+	\textbf{3.1} Prove that, $\lim_{n\to\infty}\frac{f(n)}{g(n)} = 0$ implies, $f(n)=o(g(n))$.
+\paragraph{}
+	\textbf{3.2} Prove that, $\lim_{n\to\infty}\frac{f(n)}{g(n)} = c,$ $c$ is a constant, implies $f(n)= \theta(g(n))$.
+\paragraph{}
+	\textbf{3.3} Assume that $\log n = o(n)$ and prove that, $\log^{M} n = o(n^{\epsilon})$, however large $M$ is and however small the value of $\epsilon$ is, $\epsilon>0$.
+\end{document}

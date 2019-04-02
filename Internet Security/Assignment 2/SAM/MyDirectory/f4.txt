@@ -1,0 +1,5 @@
+a=0
+b=a+8
+c=4+b
+while(True):
+	a+=1

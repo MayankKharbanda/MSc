@@ -1,0 +1,2 @@
+a=numpy.empty(6,int64)
+a[8]

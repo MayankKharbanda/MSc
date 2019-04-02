@@ -1,0 +1,20 @@
+body {
+	display: block;		/*To display elements in blocks*/
+	color: #FF0000;
+	font-family: serif;
+	letter-spacing: 0.1em;
+	text-align: center;
+	margin: 40px auto;		/*top and right margin*/
+	text-transform: lowercase;	/*convert to lower case text*/
+	line-height: 145%;		/*gap between lines*/
+	font-size: 24pt;		
+	font-variant: small-caps;	/*size is same but text is in upper case*/
+}
+
+canvas {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
